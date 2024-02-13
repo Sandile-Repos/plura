@@ -45,9 +45,12 @@ export default function Home() {
           {pricingCards?.map((card) => (
             <Card
               key={card?.title}
-              className={clsx("w-[300px] flex flex-col justify-between", {
-                "border-2 border-primary": card.title === "Unlimited Saas",
-              })}
+              className={clsx(
+                "w-[300px] h-[300px]  flex flex-col justify-between",
+                {
+                  "border-2 border-primary": card.title === "Unlimited Saas",
+                }
+              )}
             >
               <CardHeader>
                 <CardTitle
