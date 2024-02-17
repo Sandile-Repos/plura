@@ -43,6 +43,7 @@ export default function Home() {
         </p>
         <div className="flex items-center justify-center gap-4 flex-wrap mt-6">
           {pricingCards?.map((card) => (
+            //WIP : wite up free product from stripe
             <Card
               key={card?.title}
               className={clsx(

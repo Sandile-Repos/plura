@@ -6,6 +6,7 @@ import { NextResponse } from "next/server";
 // See https://clerk.com/docs/references/nextjs/auth-middleware for more information about configuring your Middleware
 export default authMiddleware({
   publicRoutes: ["/site", "/api/uploadthing"],
+  // debug: true,
   async beforeAuth(auth, req) {},
   async afterAuth(auth, req) {
     //rewrite for domains
@@ -44,6 +45,7 @@ export default authMiddleware({
       //redirect to site url
       return NextResponse.rewrite(new URL(`/site`, req.url));
     }
+
     if (
       url.pathname.startsWith("./agency") ||
       url.pathname.startsWith("./subaccount")
