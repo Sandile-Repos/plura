@@ -24,6 +24,8 @@ const Page = async ({
           `/agency/${agencyId}/billing?plan=${searchParams.plan}`
         );
       }
+      //To connect any user stripe account in our application there is a rediect url
+      //However there is no way to have dynamic path as return url, we have static url, so we have to send user back to agency page than reroute to specific agency id we trying to reconnect
       if (searchParams.state) {
         const statePath = searchParams.state.split("___")[0]; // three underscores(___)
         const stateAgencyId = searchParams.state.split("___")[1]; // three underscores(___)
