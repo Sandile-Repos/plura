@@ -1,3 +1,5 @@
+import BlurPage from "@/components/global/blur-page";
+import InfoBar from "@/components/global/inforBar";
 import Sidebar from "@/components/sidebar";
 import Unauthorized from "@/components/unauthorized";
 import {
@@ -12,6 +14,7 @@ type Props = {
   children: React.ReactNode;
   params: { agencyId: string };
 };
+
 const layout = async ({ children, params }: Props) => {
   const agencyId = await verifyAndAcceptInvitation();
   const user = await currentUser();
@@ -37,7 +40,12 @@ const layout = async ({ children, params }: Props) => {
   return (
     <div className="h-screen overflow-hidden">
       <Sidebar id={params.agencyId} type="agency" />
-      <div className="md:pl-[300px]">{children}</div>
+      <InfoBar notifications={allNoti} role={allNoti.User?.role} />
+      <div className="md:pl-[300px]">
+        <div className="relative">
+          <BlurPage>{children}</BlurPage>
+        </div>
+      </div>
     </div>
   );
 };
