@@ -21,6 +21,7 @@ export type UserWithPermissionsAndSubAccounts = Prisma.PromiseReturnType<
   typeof getUserPermissions
 >;
 
+//Just a function we not using but getting types
 const __getUsersWithAgencySubAccountPermissionsSidebarOptions = async (
   agencyId: string
 ) => {
